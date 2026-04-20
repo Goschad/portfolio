@@ -12,9 +12,10 @@ const sections = [
 interface PauseMenuProps {
     blurred?: boolean
     started?: boolean
+    onSelect?: (id: string) => void
 }
 
-export default function PauseMenu({ blurred = false, started = false }: PauseMenuProps) {
+export default function PauseMenu({ blurred = false, started = false, onSelect }: PauseMenuProps) {
     return (
         <aside className={`pause-menu ${blurred ? 'pause-menu--blurred' : ''} ${started ? 'pause-menu--intro' : ''}`}>
             <nav className="pause-menu__nav">
@@ -23,7 +24,10 @@ export default function PauseMenu({ blurred = false, started = false }: PauseMen
                         <div
                             className="nav-item"
                             style={{ '--dur': `${3.1 + i * 0.3}s`, '--delay': `${i * 0.2}s` } as React.CSSProperties}
-                            onClick={() => s.href && window.location.assign(s.href)}
+                            onClick={() => {
+                                if (s.href) window.location.assign(s.href)
+                                else onSelect?.(s.id)
+                            }}
                         >
                             <span className="nav-item__label">
                                 <span className="nav-item__label-base">{s.label}</span>

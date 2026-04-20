@@ -4,6 +4,7 @@ import reincarnated from '../../assets/audio/reincarnated.mp3'
 import { FaPause, FaPlay } from "react-icons/fa6";
 import { useRef, useState, useEffect } from 'react'
 import PauseMenu from '../pause-menu/PauseMenu';
+import SectionView from '../section-view/SectionView';
 
 interface HeroProps {
     musicSrc?: string
@@ -15,6 +16,7 @@ export default function Hero({ musicSrc = reincarnated }: HeroProps) {
     const [started, setStarted] = useState(false)
     const [playing, setPlaying] = useState(false)
     const [overlayVisible, setOverlayVisible] = useState(true)
+    const [activeSection, setActiveSection] = useState<string | null>(null)
 
     const setPlayingState = (val: boolean) => {
         playingRef.current = val
@@ -96,7 +98,15 @@ export default function Hero({ musicSrc = reincarnated }: HeroProps) {
                 </button>
             )}
             
-            <PauseMenu blurred={!started} started={started} />
+            {activeSection ? (
+                <SectionView id={activeSection} onBack={() => setActiveSection(null)} />
+            ) : (
+                <PauseMenu
+                    blurred={!started}
+                    started={started}
+                    onSelect={(id) => setActiveSection(id)}
+                />
+            )}
         </div>
     )
 }
