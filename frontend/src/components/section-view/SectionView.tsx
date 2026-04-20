@@ -1,18 +1,28 @@
-import About from "./about/About"
-import Contact from "./contact/Contact"
-import Projects from "./projects/Projects"
-import Skills from "./skills/Skills"
+import About from "../seocondary-sections/about/About"
+import Contact from "../seocondary-sections/contact/Contact"
+import Playlist from "../seocondary-sections/playlist/Playlist"
+import Projects from "../seocondary-sections/projects/Projects"
+import Skills from "../seocondary-sections/skills/Skills"
+import BackButton from "./back-button/BackButton"
 import "./style.css"
 
-export default function SectionView({ id, onBack }: { id: string, onBack: () => void }) {
+interface SectionViewProps {
+    id: string
+    onBack: () => void
+    currentSrc: string
+    onSelect: (src: string) => void
+}
+
+export default function SectionView({ id, onBack, currentSrc, onSelect }: SectionViewProps) {
     return (
         <div className="section-view">
-            <button className="section-view__back" onClick={onBack}>← Back</button>
+            <BackButton onClick={onBack} />
             <div className="section-view__content">
                 {id === 'about' && <About />}
                 {id === 'skills' && <Skills />}
                 {id === 'projects' && <Projects />}
                 {id === 'contact' && <Contact />}
+                {id === 'playlist' && <Playlist currentSrc={currentSrc} onSelect={onSelect} />}
             </div>
         </div>
     )

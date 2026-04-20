@@ -1,0 +1,33 @@
+.click-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity 0.8s ease;
+}
+
+.click-overlay--hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.click-label {
+    color: white;
+    text-align: center;
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    user-select: none;
+    animation: pulse 2s infinite;
+    font-size: clamp(3rem, 7vw, 6rem);
+    transition: transform 2.3s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.12s ease-in-out;
+}
+
+.click-label:hover{
+    transform: scale(1.20);
+    color: rgba(255, 255, 255, 0.7);
+}

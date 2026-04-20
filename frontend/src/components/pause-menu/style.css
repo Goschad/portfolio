@@ -144,8 +144,9 @@
 
 .nav-item-wrapper { display: block; }
 .nav-item-wrapper--0 { transform: rotate(-8deg); color: #a1eefd; }
-.nav-item-wrapper--1 { transform: rotate(-4deg); color: #a1eefd; }
-.nav-item-wrapper--2 { transform: rotate(-1deg); color: #a1eefd; }
-.nav-item-wrapper--3 { transform: rotate(2deg);  color: #84c6d3; }
-.nav-item-wrapper--4 { transform: rotate(5deg);  color: #a1eefd; }
-.nav-item-wrapper--5 { transform: rotate(8deg);  color: #84c6d3; }
+.nav-item-wrapper--1 { transform: rotate(-5deg); color: #a1eefd; }
+.nav-item-wrapper--2 { transform: rotate(-2deg); color: #a1eefd; }
+.nav-item-wrapper--3 { transform: rotate(1deg);  color: #84c6d3; }
+.nav-item-wrapper--4 { transform: rotate(4deg);  color: #a1eefd; }
+.nav-item-wrapper--5 { transform: rotate(7deg);  color: #84c6d3; }
+.nav-item-wrapper--6 { transform: rotate(10deg);  color: #a1eefd; }

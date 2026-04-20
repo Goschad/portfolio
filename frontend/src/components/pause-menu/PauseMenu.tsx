@@ -7,6 +7,7 @@ const sections = [
     { id: "skills", label: "Skills", href: null },
     { id: "projects", label: "Projects", href: null },
     { id: "contact", label: "Contact", href: null },
+    { id: "playlist", label: "Playlist", href: null },
 ]
 
 interface PauseMenuProps {
