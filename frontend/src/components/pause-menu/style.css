@@ -1,13 +1,45 @@
 .pause-menu {
     position: absolute;
     top: 50%;
-    left: 55%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
 @keyframes hero-intro {
     from { opacity: 0; filter: blur(20px); }
     to { opacity: 1; filter: blur(0px); }
+}
+
+@media (min-width: 768px) {
+    .pause-menu {
+        top: 55%;
+    }
+}
+
+.video--hidden {
+    animation: hero-intro 1.5s;
+}
+
+@keyframes floatWavy {
+	0% {
+		transform: translate(0px, 2px) rotate(0deg);
+	}
+
+	25% {
+		transform: translate(2px, 0px) rotate(0.4deg);
+	}
+
+	50% {
+		transform: translate(0px, -2px) rotate(0deg);
+	}
+
+	75% {
+		transform: translate(-2px, 0px) rotate(-0.4deg);
+	}
+
+	100% {
+		transform: translate(0px, 2px) rotate(0deg);
+	}
 }
 
 .pause-menu--intro {
@@ -142,11 +174,23 @@
     color: rgba(255, 255, 255, 0.2);
 }
 
-.nav-item-wrapper { display: block; }
+.nav-item-wrapper { 
+    display: block; 
+    transition: transform 0.3s ease;
+}
+
 .nav-item-wrapper--0 { transform: rotate(-8deg); color: #a1eefd; }
-.nav-item-wrapper--1 { transform: rotate(-5deg); color: #a1eefd; }
+.nav-item-wrapper--1 { transform: rotate(-5deg); color: #84c6d3; }
 .nav-item-wrapper--2 { transform: rotate(-2deg); color: #a1eefd; }
-.nav-item-wrapper--3 { transform: rotate(1deg);  color: #84c6d3; }
-.nav-item-wrapper--4 { transform: rotate(4deg);  color: #a1eefd; }
-.nav-item-wrapper--5 { transform: rotate(7deg);  color: #84c6d3; }
-.nav-item-wrapper--6 { transform: rotate(10deg);  color: #a1eefd; }
+.nav-item-wrapper--3 { transform: rotate(1deg);  color: #a1eefd;}
+.nav-item-wrapper--4 { transform: rotate(4deg);  color: #84c6d3;}
+.nav-item-wrapper--5 { transform: rotate(7deg);  color: #a1eefd; }
+.nav-item-wrapper--6 { transform: rotate(10deg);  color: #84c6d3; }
+
+.nav-item-wrapper--0:hover { transform: rotate(-13deg); }
+.nav-item-wrapper--1:hover { transform: rotate(5deg); }
+.nav-item-wrapper--2:hover { transform: rotate(2deg); }
+.nav-item-wrapper--3:hover { transform: rotate(-1deg); }
+.nav-item-wrapper--4:hover { transform: rotate(-4deg); }
+.nav-item-wrapper--5:hover { transform: rotate(10deg); }
+.nav-item-wrapper--6:hover { transform: rotate(3deg); }
