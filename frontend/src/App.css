@@ -29,3 +29,8 @@
     object-position: left center;
     user-select: none;
 }
+
+.transition--projects {
+    transform: translateX(60%);
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}

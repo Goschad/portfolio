@@ -105,7 +105,7 @@ function App() {
                 document.body
             )}
 
-            <div className={`app ${started ? 'app--started' : ''}`}>
+            <div className={`app ${started ? 'app--started' : ''} ${activeSection === 'projects' ? 'transition--projects' : ''}`}>
 
                 <Background started={started} rotated={bgRotated} />
 

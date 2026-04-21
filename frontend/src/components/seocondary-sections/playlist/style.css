@@ -10,6 +10,8 @@
     z-index: 10;
     mix-blend-mode: normal;
     animation: hero-intro 0.6s ease-out forwards;
+
+    animation-delay: var(--delay, 0s);
 }
 
 @media (min-width: 768px) {
@@ -26,6 +28,7 @@
     align-items: center;
     gap: 1rem;
     overflow: hidden;
+
 }
 .playlist-slide img {
     width: min(390px, 60vw);

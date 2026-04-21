@@ -7,7 +7,7 @@ const sections = [
     { id: "github", label: "GitHub", href: "https://github.com/Goschad" },
     { id: "skills", label: "Skills", href: null },
     { id: "projects", label: "Projects", href: null },
-    { id: "contact", label: "Contact", href: null },
+    { id: "contact", label: "Contact", href: 'mailto:bouazamarwen.pro@gmail.com' },
     { id: "playlist", label: "Playlist", href: null },
 ]
 
@@ -28,7 +28,7 @@ export default function PauseMenu({ blurred = false, started = false, hidden, on
                             className="nav-item"
                             style={{ '--dur': `${3.1 + i * 0.3}s`, '--delay': `${i * 0.2}s` } as React.CSSProperties}
                             onClick={() => {
-                                if (s.href === "/portfolio/") window.location.assign("/portfolio/")
+                                if (s.href === "/portfolio/" || s.href === "mailto:bouazamarwen.pro@gmail.com") window.location.assign(s.href)
                                 else if (s.href) window.open(s.href, '_blank')
                                 else onSelect?.(s.id)
                             }}
