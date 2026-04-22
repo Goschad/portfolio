@@ -18,6 +18,12 @@
     mix-blend-mode: color;
 }
 
+.tint--projects {
+    transform: translateX(-2.4%);
+    transition: background 0.6s ease;
+    
+}
+
 .transition-video {
     position: fixed;
     width: 100%;

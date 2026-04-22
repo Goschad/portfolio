@@ -105,6 +105,11 @@ function App() {
                 document.body
             )}
 
+            {!transitioning && activeSection && createPortal(
+                <BackButton onClick={handleBack} projects_section={activeSection == 'projects'} />,
+                document.body
+            )}
+
             <div className={`app ${started ? 'app--started' : ''} ${activeSection === 'projects' ? 'transition--projects' : ''}`}>
 
                 <Background started={started} rotated={bgRotated} />
@@ -125,7 +130,7 @@ function App() {
                 )}
 
                 <div
-                    className="section-tint"
+                    className={`section-tint ${activeSection === 'projects' ? 'tint--projects' : ''}`}
                     style={{ background: !transitioning && activeSection ? sectionColors[activeSection] : 'transparent' }}
                 />
 
@@ -134,10 +139,6 @@ function App() {
                 {started && !transitioning &&
                     <AudioButton playing={playing} onToggle={toggle} />
                 }
-
-                {!transitioning && activeSection && (
-                    <BackButton onClick={handleBack} />
-                )}
 
                 {!transitioning && (
                     activeSection ? (

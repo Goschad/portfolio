@@ -1,7 +1,8 @@
 .section-view__back {
-    position: absolute;
+    position: fixed;
     top: 2%;
     left: 2%;
+    z-index: 11;
     align-self: flex-start;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(8px);
@@ -14,12 +15,11 @@
     padding: 0.4em 1.2em;
     cursor: pointer;
     margin-bottom: 2rem;
-    z-index: 11;
     mix-blend-mode: normal;
     transition: background 0.2s;
 }
 
-.section-view__back:hover {
+.section-view__back:hover, .section--view__project:hover {
     background: rgba(92, 92, 92, 0.25);
 }
 
@@ -28,4 +28,26 @@ button {
     align-items: center;
     justify-content: center;
     gap: 0.3rem;
+    max-width: 100px;
+}
+
+.section--view__project {
+    position: fixed;
+    top: 2%;
+    right: 2%;
+    z-index: 11;
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(84, 84, 84, 0.222);
+    border-radius: 999px;
+    color: rgb(45, 45, 45);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.4em 1.2em;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    mix-blend-mode: normal;
+    transition: background 0.2s;
 }

@@ -29,5 +29,5 @@
 .click-label:hover{
     transform: scale(1.10);
     -webkit-text-stroke: 3px #a1eefd;
-    color: white;
+    color: rgb(255, 255, 255);
 }
