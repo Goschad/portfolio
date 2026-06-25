@@ -17,15 +17,13 @@ import r_intro from "./../../assets/video/transition/rintro.mp4"
 import r_outro from "./../../assets/video/transition/routro.mp4"
 
 import { useTransition } from "./../../components/desktop/hook/useTransition"
-// import { useAudio } from "../../components/desktop/hook/useAudio";
+import Playlist from "../../components/desktop/playlist/Playlist";
 
 export default function Portfolio()
 {
     const [started, setStarted] = useState(false);
     const [overlayVisible, setOverlayVisible] = useState(true);
     const [activeSection, setActiveSection] = useState<string | null>(null);
-    // const [currentSrc, setCurrentSrc] = useState("");
-    //const { playing, start, toggle } = useAudio(currentSrc);
 
     const {
         transitioning,
@@ -36,8 +34,8 @@ export default function Portfolio()
         goForward,
         goBackward,
     } = useTransition(
-        [outro, r_intro],   // forward  : outro → rintro → miroir
-        [r_outro, intro],   // backward : routro → intro → normal
+        [outro, r_intro],
+        [r_outro, intro],
     )
 
     const handleStart = () => {
@@ -71,24 +69,17 @@ export default function Portfolio()
 
     return (
         <>
-            {/* Back button — toujours dans le body pour passer au-dessus de tout */}
+
             {!transitioning && activeSection && createPortal(
                 <BackButton activeSection={activeSection} onClick={handleBack} />,
                 document.body
             )}
 
-            {/* Projects — rendu dans le body */}
             {!transitioning && activeSection === "projects" && createPortal(
                 <Projects />,
                 document.body
             )}
 
-            {!transitioning && activeSection === 'playlist' && (
-                // <Playlist currentSrc={currentSrc} onSelect={setCurrentSrc} />
-                <></>
-            )}
-
-            {/* Vidéo de transition — par-dessus tout */}
             {transitioning && currentVideoSrc && createPortal(
                 <>
                     <div style={{
@@ -116,7 +107,6 @@ export default function Portfolio()
                 ${started ? "after-click" : ""} 
                 ${activeSection === "projects" ? "projects-section" : ""}`}
             >
-                {/* bgMirrored passé au Background pour le flip CSS */}
                 <Background mirrored={bgMirrored} />
 
                 <Overlay visible={overlayVisible} handleStart={handleStart} />
@@ -126,6 +116,8 @@ export default function Portfolio()
                     hidden={!started || activeSection != null}
                     onSelect={handleSelect}
                 />
+
+                <Playlist />
 
                 {!transitioning && activeSection && <Section id={activeSection} />}
             </div>

@@ -1,0 +1,90 @@
+/* ─── SKILLS ─── */
+.skills-intro {
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 300;
+  max-width: 480px;
+  line-height: 1.8;
+  margin-bottom: 48px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.skill-card {
+  border: 1px solid var(--border);
+  padding: 24px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.3s var(--ease-smooth);
+}
+
+.skill-card:hover {
+  border-color: var(--border-hover);
+  background: var(--surface-2);
+  transform: translateY(-5px);
+}
+
+.skill-icon {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.skill-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.skill-name {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--level, 0%);
+  background: var(--text-muted);
+  transition: width 1s var(--ease-smooth);
+}
+
+.skills-category {
+  margin-bottom: 48px;
+}
+
+.skills-category-label {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skills-category-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}

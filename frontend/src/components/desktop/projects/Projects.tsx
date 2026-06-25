@@ -19,7 +19,7 @@ const projects = [
         icon: <LuDog />,
         title: "Animal Shelter", 
         description: "Full-stack web application for an animal shelter, featuring a Node.js back-end and React front-end with animal management and an admin interface for staff.", 
-        tags: ['React', 'Node.js', 'Express', 'MySQL'] 
+        tags: ['React', 'Node.js', 'Express'] 
     },
     { 
         icon: <FiBriefcase />,

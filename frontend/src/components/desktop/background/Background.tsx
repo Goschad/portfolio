@@ -28,7 +28,7 @@ export default function Background({ mirrored }: BackgroundProps)
             ref={videoRef}
             autoPlay loop muted
             className="background-video"
-            style={{ transform: mirrored ? "scaleX(-1)" : "none" }}
+            style={{ transform: mirrored ? "scaleX(-1) scaleY(-1)" : "none" }}
             onContextMenu={(e) => e.preventDefault()}
         >
             <source src={background} type="video/mp4" />
