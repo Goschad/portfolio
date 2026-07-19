@@ -21,49 +21,46 @@ export function Projects() {
     return (
         <section id="projects" className="section">
             <div className="section-inner section-inner--wide">
-                <AnimatedSection className="section-tag">Work & projects</AnimatedSection>
+                <AnimatedSection className="blade-tag">Work & projects</AnimatedSection>
 
                 <div className="projects-grid">
                     {projects.map((project, i) => (
                         <AnimatedSection key={project.num} delay={i * 0.08} className="project-card">
-                            <div className="project-img-wrap" style={{ background: project.color }}>
-                                <div className="project-placeholder">{project.num}</div>
+                            {project.status && (
+                                <span className="project-flag">{project.status}</span>
+                            )}
+
+                            <div className="project-titlebar">
+                                <h3 className="project-title">{project.title}</h3>
                             </div>
 
-                            <div className="project-body">
-                                <div className="project-meta">
-                                    <span className="project-num">{project.num} — {project.year}</span>
-                                </div>
+                            <p className="project-wire">{project.num} // {project.year}</p>
 
-                                <h3 className="project-title">{project.title}</h3>
-                                <p className="project-desc">{project.desc}</p>
+                            <p className="project-desc">{project.desc}</p>
 
-                                <div className="project-stack">
-                                    {project.stack.map((tech) => (
-                                        <span key={tech} className="tag">{tech}</span>
-                                    ))}
-                                </div>
+                            <p className="project-stack">
+                                <span className="project-stack-label">stack //</span> {project.stack.join(' / ')}
+                            </p>
 
-                                <div className="project-links">
-                                    <a
-                                        href={project.github ?? '#'}
-                                        className="project-link"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        style={{ visibility: project.github ? 'visible' : 'hidden' }}
-                                    >
-                                        <IconGithub /> GitHub
-                                    </a>
-                                    <a
-                                        href={project.demo ?? '#'}
-                                        className="project-link"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        style={{ visibility: project.demo ? 'visible' : 'hidden' }}
-                                    >
-                                        <IconExternal /> Demo
-                                    </a>
-                                </div>
+                            <div className="project-links">
+                                <a
+                                    href={project.github ?? '#'}
+                                    className="project-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{ visibility: project.github ? 'visible' : 'hidden' }}
+                                >
+                                    <IconGithub /> GitHub
+                                </a>
+                                <a
+                                    href={project.demo ?? '#'}
+                                    className="project-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{ visibility: project.demo ? 'visible' : 'hidden' }}
+                                >
+                                    <IconExternal /> Demo
+                                </a>
                             </div>
                         </AnimatedSection>
                     ))}

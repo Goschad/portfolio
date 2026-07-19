@@ -32,7 +32,7 @@ export function CustomCursor() {
         animId = requestAnimationFrame(animate)
         document.addEventListener('mousemove', onMove)
 
-        const hoverEls = document.querySelectorAll('a, button, .skill-card, .project-card')
+        const hoverEls = document.querySelectorAll('a, button, .skill-row, .project-card')
         const grow = () => {
             if (cursorRef.current) { cursorRef.current.style.width = '14px'; cursorRef.current.style.height = '14px' }
             if (ringRef.current)   { ringRef.current.style.width = '52px';   ringRef.current.style.height = '52px' }

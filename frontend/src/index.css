@@ -4,3 +4,15 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
+
+:root {
+    /* blade design tokens */
+    --ink: #0A0E1A;
+    --paper: #F2F5FA;
+    --cut-blue: #2E7CF6;
+    --frost: #A1EEFD;
+    --slash-red: #FF3131;
+    --font-blade: 'Barlow Condensed', 'Poppins', sans-serif;
+    --font-wire: 'IBM Plex Mono', 'Courier New', monospace;
+    --cut: 14deg;
+}

@@ -7,7 +7,7 @@ export function Skills() {
     return (
         <section id="skills" className="section">
             <div className="section-inner">
-                <AnimatedSection className="section-tag">Stack</AnimatedSection>
+                <AnimatedSection className="blade-tag">Stack</AnimatedSection>
 
                 <AnimatedSection delay={0.1}>
                     <p className="skills-intro">
@@ -17,22 +17,20 @@ export function Skills() {
 
                 {skillCategories.map((category, ci) => (
                     <div key={category.label} className="skills-category">
-                        <AnimatedSection delay={0.05 + ci * 0.1} className="skills-category-label">
+                        <AnimatedSection delay={0.05 + ci * 0.1} className="skills-band">
                             {category.label}
                         </AnimatedSection>
 
-                        <div className="skills-grid">
+                        <div className="skills-list">
                             {category.skills.map((skill, i) => (
-                                <AnimatedSection key={skill.name} delay={0.05 + i * 0.04} className="skill-card">
-                                    <div className="skill-icon">
-                                        <img src={skill.icon} alt={skill.name} />
-                                    </div>
-
-                                    <div className="skill-name">{skill.name}</div>
-                                    
-                                    <div className="skill-bar">
-                                        <div className="skill-bar-fill" style={{ '--level': `${skill.level}%` } as React.CSSProperties} />
-                                    </div>
+                                <AnimatedSection key={skill.name} delay={0.05 + i * 0.04} className="skill-row">
+                                    <img className="skill-glyph" src={skill.icon} alt="" />
+                                    <span className="skill-name">{skill.name}</span>
+                                    <span
+                                        className="skill-wire"
+                                        style={{ '--level': `${skill.level}%` } as React.CSSProperties}
+                                        aria-label={`${skill.level}%`}
+                                    />
                                 </AnimatedSection>
                             ))}
                         </div>

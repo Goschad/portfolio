@@ -1,28 +1,58 @@
-.to_right {
+/* blade command chip, same language as the nav slashes */
+.back-blade {
     position: fixed;
     top: 2%;
     left: 2%;
     z-index: 11;
-    align-self: flex-start;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(84, 84, 84, 0.222);
-    border-radius: 999px;
-    color: rgb(45, 45, 45);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    padding: 0.4em 1.2em;
-    cursor: pointer;
-    margin-bottom: 2rem;
-    mix-blend-mode: normal;
-    transition: background 0.2s;
-}
-
-button {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.3rem;
-    max-width: 100px;
+    gap: 0.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    font-family: var(--font-blade);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    padding: 0.35em 1.7em 0.35em 1.2em;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 0.9em) 100%, 0 100%);
+    cursor: pointer;
+}
+
+/* red slash wipe on hover / focus */
+.back-blade::before {
+    content: '';
+    position: absolute;
+    inset: 0 -0.6em;
+    background: var(--slash-red);
+    transform: skewX(calc(-1 * var(--cut))) scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.back-blade__label,
+.back-blade__arrow {
+    position: relative;
+    z-index: 1;
+}
+
+.back-blade__arrow {
+    transition: transform 0.15s ease;
+}
+
+.back-blade:hover::before,
+.back-blade:focus-visible::before {
+    transform: skewX(calc(-1 * var(--cut))) scaleX(1);
+}
+
+.back-blade:hover .back-blade__arrow,
+.back-blade:focus-visible .back-blade__arrow {
+    transform: translateX(4px);
+}
+
+.back-blade:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--frost);
 }

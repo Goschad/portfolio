@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;1,600;1,700;1,800;1,900&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 .mobile-portfolio {
+    /* blade design tokens (shared with desktop sections) */
+    --ink:        #0A0E1A;
+    --paper:      #F2F5FA;
+    --cut-blue:   #2E7CF6;
+    --frost:      #A1EEFD;
+    --slash-red:  #FF3131;
+    --font-blade: 'Barlow Condensed', sans-serif;
+    --font-wire:  'IBM Plex Mono', monospace;
+    --cut:        14deg;
+
     --bg:             #080808;
     --surface:        #101010;
     --surface-2:      #161616;

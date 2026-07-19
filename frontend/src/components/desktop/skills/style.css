@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    align-items: center; /* ← ça centre la card dans le conteneur */
+    align-items: center;
 }
 
 @media (min-width: 768px) {
@@ -16,55 +16,104 @@
     }
 }
 
-.skills__card {
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(40px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-    padding: 2.5rem;
-    max-width: 480px;
-    width: 70%;
+/* one solid blade panel, sheared on two opposite corners */
+.skills__panel {
+    position: relative;
+    background: rgba(10, 14, 26, 0.9);
+    clip-path: polygon(0 0, calc(100% - 3rem) 0, 100% 2.4rem, 100% 100%, 3rem 100%, 0 calc(100% - 2.4rem));
+    padding: 2.2rem 2.6rem 2.2rem 3.8rem;
+    max-width: 540px;
+    width: 76%;
     animation: hero-intro 0.6s ease-out forwards;
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    color: white;
 }
 
-.skills__group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-bottom: 14px;
+/* the wire spine: one vertical circuit line the categories tap off */
+.skills__panel::before {
+    content: '';
+    position: absolute;
+    left: 2.2rem;
+    top: 2.2rem;
+    bottom: 2.2rem;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--frost), var(--cut-blue));
 }
 
+.skills__group + .skills__group {
+    margin-top: 1.5rem;
+}
+
+/* category band tapped off the spine, with its node */
 .skills__cat {
-    font-size: 0.75rem;
+    position: relative;
+    font-family: var(--font-blade);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.05rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    opacity: 0.4;
-    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    background: var(--paper);
+    width: fit-content;
+    padding: 0.12em 1.3em 0.12em 0.8em;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 0.6em) 100%, 0 100%);
+    margin-bottom: 0.55rem;
 }
 
+.skills__cat::before {
+    content: '';
+    position: absolute;
+    left: -1.6rem;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 9px;
+    height: 9px;
+    background: var(--frost);
+}
+
+/* items: menu-list text separated by slashes, no pills */
 .skills__items {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    
+    align-items: baseline;
+    gap: 0.2em 0.5em;
+    font-family: var(--font-blade);
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1.25;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--paper);
 }
 
-.tag {
-    font-size: 0.85rem;
-    padding: 0.25rem 0.75rem;
-    border: 1px solid currentColor;
-    border-radius: 999px;
-    opacity: 0.7;
-    transition: all 0.3s ease;
+.skills__slash {
+    font-style: italic;
+    color: var(--cut-blue);
     user-select: none;
 }
 
-.tag:hover {
-    background-color: white;
-    color: black;
-    transform: scale(1.15);
-    transition: all 0.3s ease;
+.skills__item {
+    position: relative;
+    z-index: 0;
+    padding: 0 0.18em;
+    transition: color 0.15s ease;
+    user-select: none;
+}
+
+.skills__item::before {
+    content: '';
+    position: absolute;
+    inset: 0 -0.1em;
+    background: var(--paper);
+    transform: skewX(calc(-1 * var(--cut))) scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: -1;
+}
+
+.skills__item:hover {
+    color: var(--ink);
+}
+
+.skills__item:hover::before {
+    transform: skewX(calc(-1 * var(--cut))) scaleX(1);
 }

@@ -2,10 +2,18 @@ import './style.css'
 
 import { useEffect, useRef } from 'react'
 
+const dossier = [
+    { label: 'Education', value: '42 School Mulhouse' },
+    { label: 'Looking for', value: '12 to 24 month apprenticeship' },
+    { label: 'Languages', value: 'French, English' },
+    { label: 'Current stack', value: 'React, Next.js, Node.js, C#' },
+    { label: 'Focus', value: '.NET — software development' },
+]
+
 export default function About()
 {
         const cardRef = useRef<HTMLDivElement>(null)
-    
+
         useEffect(() => {
             const handleMouseMove = (e: MouseEvent) => {
                 if (!cardRef.current) return
@@ -16,12 +24,12 @@ export default function About()
                 const dy = (e.clientY - centerY) * 0.08
                 cardRef.current.style.transform = `translate(${dx}px, ${dy}px)`
             }
-    
+
             const handleMouseLeave = () => {
                 if (!cardRef.current) return
                 cardRef.current.style.transform = 'translate(0px, 0px)'
             }
-    
+
             window.addEventListener('mousemove', handleMouseMove)
             window.addEventListener('mouseleave', handleMouseLeave)
             return () => {
@@ -31,35 +39,23 @@ export default function About()
         }, [])
 
     return (
-                <div className="about">
-            <div className="about__card" ref={cardRef}>
-                <h1 className="about__name">Goschad</h1>
+        <div className="about">
+            <div className="about__plate" ref={cardRef}>
+                <header className="about__id">
+                    <h1 className="about__name">Goschad</h1>
+                </header>
                 <p className="about__role">Fullstack Web Developer</p>
 
-                <div className="about__divider" />
-
-                <div className="about__items">
-                    <div className="about__item">
-                        <span className="about__label">Education</span>
-                        <span className="about__value">42 School Mulhouse</span>
-                    </div>
-                    <div className="about__item">
-                        <span className="about__label">Looking for</span>
-                        <span className="about__value">12 to 24 month apprenticeship</span>
-                    </div>
-                    <div className="about__item">
-                        <span className="about__label">Languages</span>
-                        <span className="about__value">French, English</span>
-                    </div>
-                    <div className="about__item">
-                        <span className="about__label">Current stack</span>
-                        <span className="about__value">React, Next.js, Node.js</span>
-                    </div>
-                    <div className="about__item">
-                        <span className="about__label">Focus</span>
-                        <span className="about__value">.NET — software development</span>
-                    </div>
-                </div>
+                <ul className="about__dossier">
+                    {dossier.map((row) => (
+                        <li key={row.label} className="about__row">
+                            <span className="about__row-inner">
+                                <span className="about__label">{row.label}</span>
+                                <span className="about__value">{row.value}</span>
+                            </span>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     )

@@ -22,9 +22,9 @@ export default function BackButton({ activeSection, onClick }: BackButtonProps)
     }, [activeSection])
 
     return (
-        <button className='to_right' onClick={onClick}>
-            <span>Back</span>
-            <FaArrowRightLong size={16} />
+        <button className='back-blade' onClick={onClick}>
+            <span className='back-blade__label'>Back</span>
+            <FaArrowRightLong className='back-blade__arrow' size={15} />
         </button>
     )
 }
